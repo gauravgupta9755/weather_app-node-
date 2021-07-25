@@ -2,10 +2,14 @@
 
 const fs = require('fs');
 const http = require('http');
+const express = require('express');
 
 var requests = require('requests');
+const port=process.env.PORT||8000;
 const url = require('url');
 let weather_status="cloud"
+ 
+
 const homeFile=fs.readFileSync("home.html","utf-8");
   const replaceVal=(tempvalue,org)=>{
        let temperature=tempvalue.replace("{%temp%}",Math.floor(org.main.temp-(273)));
@@ -54,7 +58,7 @@ const server=http.createServer((req,res)=>{
   
 })
 
-server.listen(8000,()=>{
+server.listen(port,()=>{
   console.log("listening");
 })
 
