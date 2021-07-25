@@ -24,6 +24,7 @@ const server=http.createServer((req,res)=>{
     
    
   } 
+
   else if(req.url=="/favicon.ico"){
     console.log("fafu kamina pareshan kar diya");
   }
@@ -35,7 +36,7 @@ const server=http.createServer((req,res)=>{
     .on('data', function (chunk) {
       const objData=JSON.parse(chunk);
       const arrayData=[objData];
-      
+    
       
       const realTimeData =arrayData.map((value)=> replaceVal(homeFile,value)).join("");
       res.write(realTimeData);
@@ -44,6 +45,7 @@ const server=http.createServer((req,res)=>{
      
 
     })
+
     .on('end', function (err) {
       if (err) return console.log('connection closed due to errors', err);
      
@@ -52,10 +54,10 @@ const server=http.createServer((req,res)=>{
   
 })
 
-server.listen(3000,"127.0.0.1",()=>{
+server.listen(8000,()=>{
   console.log("listening");
 })
-console.log(url.name);
+
 
 
 
